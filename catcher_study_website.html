@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Catcher Study Stop | Catcher in the Rye</title>
+<style>
+:root{
+  --paper:#f3ead8;--paper2:#fffaf0;--ink:#282522;--muted:#6c6258;
+  --red:#9d392d;--red2:#74281f;--gold:#c49a52;--line:#d8cbb5;
+  --shadow:0 12px 30px rgba(45,34,24,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{color:var(--red2)}
+a:hover{color:var(--red);text-decoration:none}
+header{background:#242321;color:#f8f0e2;position:relative;overflow:hidden}
+.topbar{max-width:1180px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:Georgia,serif;font-weight:bold;letter-spacing:.04em;font-size:1.05rem}
+.topbar small{color:#d9cbb5;letter-spacing:.12em;text-transform:uppercase;font-size:.68rem}
+.hero{max-width:1180px;margin:auto;padding:55px 24px 64px;display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}
+.kicker{color:#d7b879;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:bold}
+h1,h2,h3{font-family:Georgia,'Times New Roman',serif;line-height:1.15}
+h1{font-size:clamp(2.8rem,6vw,5.6rem);margin:12px 0 18px;letter-spacing:-.04em}
+.hero p{max-width:620px;color:#e4d9c9;font-size:1.05rem}
+.hero .tagline{font-family:Georgia,serif;font-size:1.35rem;color:#d7b879}
+.hero-photo{height:330px;border:8px solid #f4ead7;box-shadow:14px 14px 0 #9d392d;background:#4c4841;overflow:hidden;transform:rotate(1deg)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) sepia(16%)}
+.photo-credit{font-size:.72rem;color:#d9cbb5;margin-top:16px}
+nav{background:#e4d6be;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav-inner{max-width:1180px;margin:auto;padding:10px 20px;display:flex;gap:8px;align-items:center;overflow-x:auto}
+.nav-inner a{white-space:nowrap;text-decoration:none;color:#382e28;font-size:.83rem;font-weight:bold;padding:8px 11px;border-radius:3px}
+.nav-inner a:hover,.nav-inner a.active{background:var(--red);color:#fff8eb}
+main{max-width:1180px;margin:36px auto;padding:0 24px 70px}
+.intro-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:22px;margin-bottom:34px}
+.paper-card{background:var(--paper2);border:1px solid var(--line);padding:24px;box-shadow:var(--shadow)}
+.paper-card h2{font-size:1.75rem;margin:0 0 12px}
+.note{border-left:4px solid var(--gold);padding:12px 16px;background:#f1e6d2;color:#51463b}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:48px 0 18px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.section-head h2{font-size:2.1rem;margin:0}
+.section-head span{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted)}
+.topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.topic{background:var(--paper2);border:1px solid var(--line);padding:22px;position:relative;min-height:210px}
+.topic .num{font-family:Georgia,serif;font-size:2.3rem;color:#bda77f;line-height:1}
+.topic h3{font-size:1.35rem;margin:8px 0}
+.topic p{margin:8px 0;color:#4e463e}
+.evidence{font-size:.88rem;border-top:1px dashed var(--line);padding-top:10px;margin-top:12px}
+.evidence b{color:var(--red2)}
+.pill{display:inline-block;background:#eadcc4;color:#594332;padding:3px 8px;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+button,.button{background:var(--red);border:0;color:#fff7ea;padding:10px 15px;font-weight:bold;cursor:pointer;border-radius:2px;font-size:.9rem}
+button:hover,.button:hover{background:var(--red2)}
+button.secondary{background:#dfd1ba;color:#332b24}
+input,textarea{width:100%;padding:11px;border:1px solid #cbbba2;background:#fffdf8;font:inherit;margin:6px 0 12px}
+textarea{min-height:90px;resize:vertical}
+.quiz-question{padding:16px 0;border-bottom:1px solid var(--line)}
+.quiz-question p{font-weight:bold;margin:0 0 8px}
+.quiz-question label{display:block;padding:4px 0;cursor:pointer}
+#quiz-result{font-weight:bold;margin-top:14px}
+.post{background:#f1e6d2;padding:12px;margin:10px 0;border-left:3px solid var(--gold);overflow-wrap:anywhere}
+.post small{color:var(--muted)}
+.song-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.song{background:#f1e6d2;padding:15px;border:1px solid var(--line)}
+.song h3{margin:0 0 5px;font-size:1.1rem}
+.resources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.resource{padding:15px;background:#f1e6d2;border:1px solid var(--line)}
+.resource a{font-weight:bold}
+footer{background:#242321;color:#d9cbb5;padding:30px 24px;text-align:center;font-size:.8rem}
+footer a{color:#e6c88e}
+.small{font-size:.82rem;color:var(--muted)}
+.highlight{color:var(--red2);font-weight:bold}
+@media(max-width:760px){
+ .hero{grid-template-columns:1fr;padding-top:38px}.hero-photo{height:230px}
+ .intro-grid,.topic-grid,.two-col,.song-list,.resources{grid-template-columns:1fr}
+ .section-head{align-items:start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<header id="home">
+  <div class="topbar">
+    <div><div class="brand">THE CATCHER STUDY STOP</div><small>A student guide to J.D. Salinger's novel</small></div>
+    <div class="kicker">New York • winter • 1950s</div>
+  </div>
+  <div class="hero">
+    <div>
+      <div class="kicker">Taking a closer look</div>
+      <h1>The Catcher<br>in the Rye</h1>
+      <p class="tagline">One teenager, a few days in New York, and a lot on his mind.</p>
+      <p>This guide goes over Holden Caulfield's story, including the characters, symbols, important events, and main themes. It also looks at why teenagers today might still relate to the book.</p>
+    </div>
+    <div>
+      <div class="hero-photo">
+        <img src="https://cdn.loc.gov/service/pnp/van/5a52000/5a52900/5a52979r.jpg" alt="Black and white 1956 photograph looking over Central Park in New York City">
+      </div>
+      <div class="photo-credit">Photo: Central Park from 146 Central Park West, 1956 — Library of Congress, Carl Van Vechten Collection.</div>
+    </div>
+  </div>
+</header>
+
+
+
+<main>
+ <div class="intro-grid">
+  <section class="paper-card">
+   <div class="kicker">Start here</div>
+   <h2>What's the book about?</h2>
+   <p><i>The Catcher in the Rye</i> is about Holden Caulfield, a teenager who leaves his school and spends a few days by himself in New York City. While he is there, he thinks about his family, people he knows, growing up, and things in life that bother or confuse him.</p>
+   <p>Holden tells the story himself, so we get to hear exactly what he thinks. At the same time, readers have to pay attention to what his words show about his personality and feelings.</p>
+  </section>
+  <aside class="paper-card">
+   <div class="kicker">Quick facts</div>
+   <p><b>Author:</b> J. D. Salinger<br><b>Published:</b> 1951<br><b>Main character:</b> Holden Caulfield<br><b>Main setting:</b> New York City<br><b>Point of view:</b> First person</p>
+   <div class="note">Reading tip: This guide uses chapter numbers because page numbers are different in each edition of the book.</div>
+  </aside>
+ </div>
+
+ <section id="study-guide">
+  <div class="section-head"><h2>10 things to know</h2><span>Study guide / chapter examples</span></div>
+  <div class="topic-grid">
+   <article class="topic"><div class="num">01</div><h3>Holden Caulfield</h3><p>Holden notices a lot, makes sarcastic comments, and judges the people around him pretty often. He can be funny, but you can also tell that he has a hard time understanding himself and the people in his life.</p><div class="evidence"><b>Text evidence:</b> Chapters 1–3 show how Holden talks and how quickly he starts criticizing Pencey Prep and the people at the school.</div><span class="pill">Character</span></article>
+   <article class="topic"><div class="num">02</div><h3>Phoniness</h3><p>Holden calls people fake when he thinks they are just trying to impress others. However, he also hides his feelings and sometimes acts differently around people, so he is not always that different from the people he criticizes.</p><div class="evidence"><b>Text evidence:</b> Chapters 4–6 show how Holden reacts to Stradlater's date and how he talks about other students at Pencey.</div><span class="pill">Theme</span></article>
+   <article class="topic"><div class="num">03</div><h3>Alienation and loneliness</h3><p>Even though Holden is around people for most of the story, he still feels alone. He wants someone to understand him, but he also pushes people away and has trouble trusting them.</p><div class="evidence"><b>Text evidence:</b> In Chapters 9–14, Holden goes around New York and tries talking to different people, but most of these moments make him feel even more alone.</div><span class="pill">Theme</span></article>
+   <article class="topic"><div class="num">04</div><h3>Innocence and childhood</h3><p>Holden likes being around children because he thinks they are more honest and less complicated than adults. His memories of Allie and the way he cares about Phoebe show that he wants to protect kids and their innocence.</p><div class="evidence"><b>Text evidence:</b> Chapters 16–17 show Holden thinking about the children at the museum, while Chapters 21–22 show how close he is to Phoebe.</div><span class="pill">Theme</span></article>
+   <article class="topic"><div class="num">05</div><h3>The catcher image</h3><p>Holden pictures himself standing in a field of rye, catching children before they fall off a cliff. This shows that he wants to keep kids safe and protect them from having to grow up too fast.</p><div class="evidence"><b>Text evidence:</b> In Chapter 22, Holden explains this idea to Phoebe. It shows what he wishes he could do with his life.</div><span class="pill">Symbolism</span></article>
+   <article class="topic"><div class="num">06</div><h3>Allie and grief</h3><p>Holden's younger brother Allie died before the story begins. Holden still thinks about him a lot, and it is clear that losing him is one reason Holden feels so sad and angry.</p><div class="evidence"><b>Text evidence:</b> Chapter 5 is about Holden remembering Allie and the baseball mitt that Allie wrote poems on.</div><span class="pill">Character / memory</span></article>
+   <article class="topic"><div class="num">07</div><h3>Relationships and trust</h3><p>Holden wants to have real relationships with people, but he does not always know how to open up or accept help. His interactions with Sally, his memories of Jane, and his time with Phoebe show this in different ways.</p><div class="evidence"><b>Text evidence:</b> Chapters 17–18 cover Holden's date with Sally, and Chapters 21–23 show how much Phoebe means to him.</div><span class="pill">Relationships</span></article>
+   <article class="topic"><div class="num">08</div><h3>Growing up and adulthood</h3><p>Holden thinks being an adult means dealing with fake people and disappointment, so he does not want to grow up. But as the story goes on, he starts to see that change is something he cannot avoid.</p><div class="evidence"><b>Text evidence:</b> Chapters 20–22 show Holden going through a really difficult time before he spends time with Phoebe, who makes him think differently.</div><span class="pill">Coming of age</span></article>
+   <article class="topic"><div class="num">09</div><h3>The Museum of Natural History</h3><p>Holden likes the museum because everything inside stays the same whenever he visits. It makes him feel comfortable because he wishes the rest of the world would stop changing too.</p><div class="evidence"><b>Text evidence:</b> In Chapter 16, Holden remembers going to the museum and explains why he likes seeing the same displays.</div><span class="pill">Symbolism / setting</span></article>
+   <article class="topic"><div class="num">10</div><h3>The ending</h3><p>At the end of the book, Holden watches Phoebe ride the carousel and is happy just watching her. This moment could show that he is starting to understand that kids need to take chances and grow up in their own way.</p><div class="evidence"><b>Text evidence:</b> Chapter 25 ends with the carousel scene, and Chapter 26 shows Holden looking back on everything that happened.</div><span class="pill">Ending / change</span></article>
+  </div>
+ </section>
+
+ <section id="today">
+  <div class="section-head"><h2>Why people still relate to it today</h2><span>Then & now</span></div>
+  <div class="two-col">
+   <div class="paper-card"><h3>Feeling like nobody understands you</h3><p>A lot of teenagers can understand how Holden feels when it seems like nobody gets him. Even if someone is around friends, classmates, or people online all day, they can still feel left out or alone.</p></div>
+   <div class="paper-card"><h3>Figuring out who is being real</h3><p>Holden gets annoyed when people act fake or only care about how others see them. This can connect to social media today, where people usually post only the best parts of their lives.</p></div>
+   <div class="paper-card"><h3>Worrying about the future</h3><p>Holden does not like thinking about becoming an adult. Students today can feel that same pressure when they think about school, jobs, relationships, and what they want to do after graduation.</p></div>
+   <div class="paper-card"><h3>Dealing with loss and change</h3><p>The way Holden remembers Allie shows how losing someone can change the way a person sees things. It also reminds us that people might be dealing with a lot even when they do not show it.</p></div>
+  </div>
+  <p class="note" style="margin-top:16px"><b>Discussion question:</b> Do you think Holden is just angry at the world, or is he upset because he wishes people and life were better?</p>
+ </section>
+
+ <section id="quiz">
+  <div class="section-head"><h2>Quick quiz</h2><span>Interactive quiz</span></div>
+  <div class="paper-card">
+   <form id="quiz-form">
+    <div class="quiz-question"><p>1. Where does Holden begin telling his story?</p><label><input type="radio" name="q1" value="a"> At his family's apartment</label><label><input type="radio" name="q1" value="b"> At Pencey Prep</label><label><input type="radio" name="q1" value="c"> At the museum</label></div>
+    <div class="quiz-question"><p>2. What does Allie's baseball mitt help represent?</p><label><input type="radio" name="q2" value="a"> Holden's memories and grief</label><label><input type="radio" name="q2" value="b"> Holden's love of sports</label><label><input type="radio" name="q2" value="c"> His plan for the future</label></div>
+    <div class="quiz-question"><p>3. What does the museum represent to Holden?</p><label><input type="radio" name="q3" value="a"> A place where he can become famous</label><label><input type="radio" name="q3" value="b"> A place where everything changes</label><label><input type="radio" name="q3" value="c"> A familiar place where things stay the same</label></div>
+    <div class="quiz-question"><p>4. Who does Holden explain the catcher image to?</p><label><input type="radio" name="q4" value="a"> Stradlater</label><label><input type="radio" name="q4" value="b"> Phoebe</label><label><input type="radio" name="q4" value="c"> Mr. Antolini</label></div>
+    <div class="quiz-question"><p>5. What is one possible meaning of the carousel scene?</p><label><input type="radio" name="q5" value="a"> Holden accepts that children need room to grow</label><label><input type="radio" name="q5" value="b"> Holden decides to return to Pencey</label><label><input type="radio" name="q5" value="c"> Holden no longer cares about Phoebe</label></div>
+    <button type="submit">Check my answers</button> <button type="reset" class="secondary">Try again</button>
+   </form>
+   <div id="quiz-result" aria-live="polite"></div>
+  </div>
+ </section>
+
+ <section id="music">
+  <div class="section-head"><h2>Soundtrack for Holden</h2><span>Themes through music</span></div>
+  <p>These songs are not actually in the book. They are newer songs that match some of the feelings and ideas in the story. Click a title if you want to listen.</p>
+  <div class="song-list">
+   <div class="song"><h3>“Boulevard of Broken Dreams” — Green Day</h3><p>This matches how lonely Holden feels, even when he is surrounded by other people.</p><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Green+Day+Boulevard+of+Broken+Dreams">Find the song ↗</a></div>
+   <div class="song"><h3>“The Suburbs” — Arcade Fire</h3><p>This connects to looking back on childhood and feeling like those days are far away.</p><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Arcade+Fire+The+Suburbs">Find the song ↗</a></div>
+   <div class="song"><h3>“Ribs” — Lorde</h3><p>This fits Holden's fear that getting older means losing what makes being young special.</p><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Lorde+Ribs">Find the song ↗</a></div>
+   <div class="song"><h3>“Everybody's Changing” — Keane</h3><p>This connects to how Holden struggles with change while it seems like everyone else is moving on.</p><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=Keane+Everybodys+Changing">Find the song ↗</a></div>
+  </div>
+ </section>
+
+ <section id="board">
+  <div class="section-head"><h2>Reader message board</h2><span>Share what you think</span></div>
+  <div class="two-col">
+   <div class="paper-card">
+    <h3>Leave a thought</h3>
+    <p class="small">Share a question, something you noticed in the book, or a connection to life today. Be respectful, and do not post personal contact information.</p>
+    <form id="post-form"><label for="nickname">Name or nickname</label><input id="nickname" maxlength="24" placeholder="e.g. BookFan" required><label for="message">Your thought</label><textarea id="message" maxlength="350" placeholder="I think Holden..." required></textarea><button type="submit">Post message</button></form>
+    <p class="small">Your posts are only saved in this browser on this device. They are not posted publicly.</p>
+   </div>
+   <div class="paper-card"><h3>Recent thoughts</h3><div id="posts"></div><button class="secondary" id="clear-posts" type="button">Clear local posts</button></div>
+  </div>
+ </section>
+
+ <section id="resources">
+  <div class="section-head"><h2>Want to learn more?</h2><span>Helpful links</span></div>
+  <div class="resources">
+   <div class="resource"><a href="https://www.britannica.com/topic/The-Catcher-in-the-Rye" target="_blank" rel="noopener">Encyclopaedia Britannica ↗</a><p>Learn more about the book, its author, and why it is important in American literature.</p></div>
+   <div class="resource"><a href="https://www.sparknotes.com/lit/catcher/" target="_blank" rel="noopener">SparkNotes ↗</a><p>Review chapter summaries, characters, and the main themes.</p></div>
+   <div class="resource"><a href="https://www.litcharts.com/lit/the-catcher-in-the-rye" target="_blank" rel="noopener">LitCharts ↗</a><p>Find more explanations of the symbols, themes, and important parts of the book.</p></div>
+   <div class="resource"><a href="https://www.loc.gov/" target="_blank" rel="noopener">Library of Congress ↗</a><p>Look at old photos and other historical sources from this time period.</p></div>
+  </div>
+  <p class="small" style="margin-top:16px">Image credit: Library of Congress, Carl Van Vechten Collection, 1956. This is a historical photo of New York City, not a picture from the book.</p>
+  <p class="small">The book examples are written in our own words and listed by chapter because page numbers depend on the edition. If you use this for an assignment, check the chapter in your copy and add the page number.</p>
+ </section>
+</main>
+<footer>
+ <p><b>THE CATCHER STUDY STOP</b> · A student study guide</p>
+ <p>Made to help students understand and discuss J. D. Salinger's novel.</p>
+</footer>
+<script>
+const navLinks=[...document.querySelectorAll('.nav-inner a')];
+const sections=[...document.querySelectorAll('main section[id], header[id]')];
+window.addEventListener('scroll',()=>{
+ let current='home';
+ sections.forEach(s=>{if(window.scrollY>=s.offsetTop-130) current=s.id});
+ navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+});
+document.getElementById('quiz-form').addEventListener('submit',e=>{
+ e.preventDefault();
+ const answers={q1:'b',q2:'a',q3:'c',q4:'b',q5:'a'};
+ let score=0,missing=0;
+ Object.entries(answers).forEach(([q,a])=>{
+  const chosen=document.querySelector(`input[name="${q}"]:checked`);
+  if(!chosen) missing++; else if(chosen.value===a) score++;
+ });
+ const result=document.getElementById('quiz-result');
+ result.textContent=missing ? `You have ${score}/5 so far. Finish the other ${missing} question(s), then check again.` :
+  `You got ${score}/5 correct. ${score===5?'Nice job! You know the main ideas!':score>=3?'Good job! Look back at the study guide for the ones you missed.':'Take another look at the study guide and give it another try.'}`;
+});
+const postKey='catcherStudyStopPosts';
+function loadPosts(){
+ const holder=document.getElementById('posts');
+ let posts=[];try{posts=JSON.parse(localStorage.getItem(postKey)||'[]')}catch(e){}
+ holder.innerHTML='';
+ if(!posts.length){holder.innerHTML='';return}
+ posts.slice().reverse().forEach(p=>{
+  const el=document.createElement('div');el.className='post';
+  const name=document.createElement('b');name.textContent=p.name;
+  const body=document.createElement('p');body.textContent=p.message;
+  const date=document.createElement('small');date.textContent=p.date;
+  el.append(name,body,date);holder.append(el);
+ });
+}
+document.getElementById('post-form').addEventListener('submit',e=>{
+ e.preventDefault();
+ const name=document.getElementById('nickname').value.trim();
+ const message=document.getElementById('message').value.trim();
+ if(!name||!message)return;
+ let posts=[];try{posts=JSON.parse(localStorage.getItem(postKey)||'[]')}catch(e){}
+ posts.push({name,message,date:new Date().toLocaleString()});
+ localStorage.setItem(postKey,JSON.stringify(posts.slice(-20)));
+ e.target.reset();loadPosts();
+});
+document.getElementById('clear-posts').addEventListener('click',()=>{
+ if(confirm('Clear the posts saved in this browser?')){localStorage.removeItem(postKey);loadPosts()}
+});
+loadPosts();
+</script>
+</body>
+</html>
